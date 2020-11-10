@@ -1,0 +1,75 @@
+<div class="container">
+    
+    <form [formGroup]="addForm" (ngSubmit)="addDetails()" ngNativeValidate>
+        <h2 >{{heading}}</h2>
+        
+        <hr>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="userId">User Id</label>
+        <div class="col-lg-8">
+            <input type="number" name="userId" class="form-control" id="userId" required formControlName="userId" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="address">Address</label>
+        <div class="col-lg-8">
+            <input type="text" name="address" class="form-control" id="address" formControlName="address" required >
+        </div>
+        <span class="text-danger" *ngIf="addForm.get('address').invalid && addForm.get('address').touched && addForm.get('address').errors.maxlength">Maximum allowed length for address is 100 characters.</span>
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="experience">Experience</label>
+        <div class="col-lg-8">
+            <input type="number" name="experience"  class="form-control" id="experience" formControlName="experience" required>
+        </div>
+        <span class="text-danger" *ngIf="addForm.get('experience').invalid && addForm.get('experience').touched && (addForm.get('experience').errors.min || addForm.get('experience').errors.max)">Experience must be a valid number between 0 and 45</span>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="qualification">Qualification</label>
+        <div class="col-lg-8">
+            
+            <select class="form-control" id="qualification" formControlName="qualification" required  name="qualification">
+                <option value="" disabled>Choose Your Qualification</option>
+                <option value="BTech">BTech</option>
+                <option value="MTech">MTech</option>
+                <option value="MBA">MBA</option>
+                <option value="CA">CA</option>
+                <option value="CS">CS</option>
+            </select>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="profession">Profession</label>
+        <div class="col-lg-8">
+            <input type="text" name="profession" class="form-control" id="profession" formControlName="profession" required>
+        </div>
+        <span class="text-danger" *ngIf="addForm.get('profession').invalid && addForm.get('profession').touched && addForm.get('profession').errors.maxlength">Maximum allowed length for profession is 40 characters.</span>
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="skillSet">SkillSet</label>
+        <div class="col-lg-8">
+            <input type="text" name="skillSet" class="form-control" id="skillSet" formControlName="skillSet" required>
+        </div>
+        <span class="text-danger" *ngIf="addForm.get('skillSet').invalid && addForm.get('skillSet').touched && addForm.get('skillSet').errors.maxlength">Maximum allowed length for skillSet is 40 characters.</span>
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="resume">Resume</label>
+        <div class="col-lg-8">
+            <input type="file" name="resume" accept="application/pdf" maxFileSize="30000" class="form-control" id="resume" required formControlName="resume" (change)=onUpload($event)>
+        </div>
+        <span class="text-danger" *ngIf="addForm.get('resume').invalid && addForm.get('resume').touched && addForm.get('resume').errors.maxlength">Maximum allowed length for resume name is 20 characters.</span>
+    </div>
+    <div class="form-row text-center">
+        <button type="submit" class="btn btn-success">{{buttonName}}</button>
+        
+    </div>
+    
+    </form>
+
+</div>
+
+

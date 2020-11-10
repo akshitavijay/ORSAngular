@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="heading">Applied Jobs</h2>
+            <!-- table to show all the products -->
+            <table class="table">
+                <thead class=" table-dark">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Job Category</th>
+                        <th>Job Title</th>
+                        <th>Required Skills</th>
+                        <th>Current Openings</th>
+                        <th>Joining Date</th>
+                        <th>Location</th>
+                        <th>Designation</th>
+                        <th>Experience</th>
+                        <th>Qualification</th>
+
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let job of allJobs | async">
+                       
+                        <td>{{job.companyName}}</td>
+                        <td>{{job.jobCategory}}</td>
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.requiredSkills}}</td>
+                        <td>{{job.currentOpenings}}</td>
+                        <td>{{job.joiningDate}}</td>
+                        <td>{{job.location}}</td>
+                        <td>{{job.designation}}</td>
+                        <td>{{job.experience}}</td>
+                        <td>{{job.qualification}}</td>
+                     </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

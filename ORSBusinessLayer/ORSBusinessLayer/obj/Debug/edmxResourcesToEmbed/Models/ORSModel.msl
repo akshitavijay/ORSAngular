@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ORSDatabaseModelStoreContainer" CdmEntityContainer="ORSDatabaseEntities">
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicant">
+          <ScalarProperty Name="applicationNo" ColumnName="applicationNo" />
+          <ScalarProperty Name="jobId" ColumnName="jobId" />
+          <ScalarProperty Name="jobSeekerId" ColumnName="jobSeekerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.Employer">
+        <MappingFragment StoreEntitySet="Employer">
+          <ScalarProperty Name="employerId" ColumnName="employerId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="contactDetails" ColumnName="contactDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="jobId" ColumnName="jobId" />
+          <ScalarProperty Name="employerId" ColumnName="employerId" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="jobCategory" ColumnName="jobCategory" />
+          <ScalarProperty Name="jobTitle" ColumnName="jobTitle" />
+          <ScalarProperty Name="requiredSkills" ColumnName="requiredSkills" />
+          <ScalarProperty Name="currentOpenings" ColumnName="currentOpenings" />
+          <ScalarProperty Name="joiningDate" ColumnName="joiningDate" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="designation" ColumnName="designation" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeekers">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.JobSeeker">
+        <MappingFragment StoreEntitySet="JobSeeker">
+          <ScalarProperty Name="jobSeekerId" ColumnName="jobSeekerId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="skillSet" ColumnName="skillSet" />
+          <ScalarProperty Name="resume" ColumnName="resume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ORSDatabaseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

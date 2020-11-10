@@ -1,0 +1,53 @@
+.jumbotron {
+    width: auto;
+    height: 500px;
+    background-image: url('../../assets/bg11.jpg');
+    background-size: 100% 500px;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    border-radius: 0%;
+}
+
+.company {
+    background-image: url('../../assets/bg13.jpg');
+    height:230px; 
+    border-radius:5px; 
+    width:400px; 
+    margin-right:10px; 
+    margin-left:30px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.title {
+    font-size: 34px; 
+    text-decoration: solid;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 0%;
+    color: rgb(71, 49, 55);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lead {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgb(71, 49, 55);
+    margin-top: 0px;
+}
+
+.background {
+    background-color: brown ;
+}
+
+h3 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    background-image: url(../../assets/bg14.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 5px;
+}

@@ -1,0 +1,58 @@
+<div style="margin: 50px 100px; background-image: url(../../../assets/bg13.jpg); background-size: 100% 100%; padding: 20px;">
+    <form #form="ngForm" (ngSubmit)="editForm(form)">
+      
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">User ID</label>
+            <input type="number" class="form-control" id="inputEmail4" name="userId" placeholder="UserID" [ngModel]="user.userId" readonly>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" name="password" [ngModel]="user.password" placeholder="Password"
+            #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" required>
+            <small class="text-danger" [class.d-none]="pass.valid || pass.untouched">Password is required</small>
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" [ngModel]="user.email"
+          #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+          required>
+          <small class="text-danger" [class.d-none]="mail.valid || mail.untouched">Email is
+          required and enter a valid Email</small>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="userName">UserName</label>
+          <input type="text" class="form-control" name="name" id="userName" placeholder="userName" [ngModel]="user.name"
+          #name="ngModel" [class.is-invalid]="name.invalid && name.touched" pattern="[a-zA-Z]+[\-'\s]?[a-zA-Z ]+$"
+          required>
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is
+          required and contain alphabets only.</small>
+        </div>
+      </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phoneNo" name="phone" placeholder="Phone No" [ngModel]="user.phone"
+            #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched" pattern="^[6-9][0-9]{9}$"
+            required>
+            <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Phone Number is
+            required and enter a valid numbers only.</small>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="gender">Gender</label>
+            <select id="gender" class="form-control" name="gender" [ngModel]="user.gender">
+              <option selected value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="roleId">Role Id</label>
+            <input type="text" class="form-control" id="roleId" name="roleId" [ngModel]="user.roleId" readonly>
+          </div>
+        </div>
+        
+        <button type="submit" style="margin:50px 550px; font-size: large; padding: 10px; width: 150px;" class="btn btn-primary">Edit Details</button>
+    </form>
+    </div>

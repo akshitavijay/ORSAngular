@@ -1,0 +1,53 @@
+<div style="background-color: rgb(201, 133, 129);">
+    <form #userForm="ngForm" (ngSubmit)="onSearch(userForm)">
+        <h4><b>Search</b></h4>
+        <h5>Please select a category</h5>
+        <select class="form-control"  id="searchBy" name="searchBy" ngModel >
+            <option>Job Category</option>
+            <option>Skill Set</option>
+            <option>Location</option>
+            <option>Designation</option>
+        </select>
+        <br />
+        <input type="search" name="search" placeholder="Search for Job" ngModel />
+
+        <button type="submit" value="Search" class="navbar-btn btn-primary">Search</button>
+    </form>
+    <br>
+    <table cellpadding="10px" class="table" >
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Job Category</th>
+                <th>Job Title</th>
+                <th>Skill Set</th>
+                <th>Vacancies</th>
+                <th>Joining Date</th>
+                <th>Location</th>
+                <th>Designation</th>
+                <th>Experience</th>
+                <th>Qualification</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of jobDetails">
+                <td>{{item["companyName"]}}</td>
+                <td>{{item["jobCategory"]}}</td>
+                <td>{{item["jobTitle"]}}</td>
+                <td>{{item["requiredSkills"]}}</td>
+                <td>{{item["currentOpenings"]}}</td>
+                <td>{{item["joiningDate"]}}</td>
+                <td>{{item["location"]}}</td>
+                <td>{{item["designation"]}}</td>
+                <td>{{item["experience"]}}</td>
+                <td>{{item["qualification"]}}</td>
+                <td *ngIf="isLoggedIn"><button class="btn btn-secondary" (click)="applyJob(item['jobId'])" >Apply</button></td>
+            </tr>
+            
+            <!-- <tr colspan="10" >No rows match this criteria</tr> -->
+
+        </tbody>
+    </table>
+
+</div>

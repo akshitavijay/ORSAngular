@@ -1,0 +1,75 @@
+<div class="login-block">
+    <div class="container">
+	<div class="row">
+		<div class="col-md-4 login-sec">
+		    <h2 class="text-center">Login Now</h2>
+<form class="login-form"  (ngSubmit)="loginUser(form)" #form="ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="text-uppercase">Email</label>
+    <input type="text" name="email" ngModel class="form-control" placeholder="" required maxlength="30"  [(ngModel)]="defaultEmail" email #emailRef="ngModel">
+    <div *ngIf="emailRef.errors?.required  && emailRef.touched" class="errorDiv">
+      *Email is required!
+    </div>
+    <div *ngIf="!emailRef.valid  && emailRef.touched && emailRef.value!=''" class="errorDiv">
+        *Enter Valid Email Format!
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+    <input type="password" name="password" ngModel class="form-control" placeholder=""  required maxlength="20"  [(ngModel)]="defaultPass"  #passRef="ngModel">
+    <div *ngIf="passRef.errors?.required  && passRef.touched" class="errorDiv">
+      *Password is required!
+  </div>
+  </div>
+  
+  
+    <div class="form-check">
+
+    <button type="submit" class="btn btn-login float-right"  [disabled]="!form.valid">Submit</button>
+  </div>
+  
+</form>
+<div class="copy-text">Created with <i class="fa fa-heart"></i> by <a href="https://www.linkedin.com/in/samarth-chadda-918569137/" target="_blank">Samarth Chadda</a></div>
+		</div>
+		<div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+            <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>Job Seeker</h2>
+            <!-- <p>A Job seeker can register on portal and then search for jobs.</p> -->
+        </div>	
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>Employer</h2>
+            <!-- <p>A Job seeker can register on portal and then search for jobs.</p> -->
+       </div>	
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2 style="margin-bottom: 180px; margin-left: -10px;">Admin</h2>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p> -->
+        </div>	
+    </div>
+  </div>
+            </div>	   
+		    
+		</div>
+	</div>
+</div>
+</div>

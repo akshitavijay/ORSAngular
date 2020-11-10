@@ -1,0 +1,87 @@
+<div class="container">
+    <form [formGroup]="addForm" (ngSubmit)="onClick()" ngNativeValidate>
+        <h2>Job Details</h2>
+        <hr>
+   
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="companyName">Company Name</label>
+        <div class="col-lg-9">
+            <input type="text" name="companyName" class="form-control" id="companyName" formControlName="companyName" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="jobCategory">Job Category</label>
+        <div class="col-lg-9">
+            <input type="text" name="jobCategory" class="form-control" id="jobCategory" formControlName="jobCategory" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="jobTitle">Job Title</label>
+        <div class="col-lg-9">
+            <input type="text" name="jobTitle" class="form-control" id="jobTitle" formControlName="jobTitle" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="requiredSkills">Skills Required</label>
+        <div class="col-lg-9">
+            <input type="text" name="requiredSkills" class="form-control" id="requiredSkills" formControlName="requiredSkills" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="currentOpenings">Current Openings</label>
+        <div class="col-lg-9">
+            <input type="text" name="currentOpenings" class="form-control" id="currentOpenings" formControlName="currentOpenings" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="joiningDate">Joining Date</label>
+        <div class="col-lg-9">
+            <input type="text" name="joiningDate" class="form-control" id="joiningDate" formControlName="joiningDate" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="location">Location</label>
+        <div class="col-lg-9">
+            <input type="text" name="location" class="form-control" id="location" formControlName="location" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="designation">Designation</label>
+        <div class="col-lg-9">
+            <input type="text" name="designation" class="form-control" id="designation" formControlName="designation" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="experience">Experience (in Years)</label>
+        <div class="col-lg-9">
+            <input type="text" name="experience" class="form-control" id="experience" formControlName="experience" readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="qualification">Qualification</label>
+        <div class="col-lg-9">
+            <input type="text" name="qualification" class="form-control" id="qualification" formControlName="qualification" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-row text-center">
+        <button type="submit" class="btn btn-success">Apply</button>
+    </div>
+    
+    </form>
+</div>
+

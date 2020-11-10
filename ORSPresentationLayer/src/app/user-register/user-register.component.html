@@ -1,0 +1,76 @@
+<div class="body1">
+<div class="signup-form">
+    <form (ngSubmit)="addUser(form)" #form="ngForm">
+		<h2>Register</h2>
+		<p class="hint-text">Create your account as a Employer Or JobSeeker</p>
+        <div class="form-group">
+			<div class="row">
+				<div class="col">
+                    <input type="text" class="form-control" name="name" placeholder="Full Name" maxlength="20" required="required" [(ngModel)]="defaultName"  #nameRef="ngModel">
+                    <div *ngIf="nameRef.errors?.required  && nameRef.touched" class="errorDiv">
+                        *Name is required!
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="phone" pattern="^[6-9]\d{9}$" placeholder="Phone" required="required"  [(ngModel)]="defaultPhone"  #phoneRef="ngModel">
+                    <div *ngIf="phoneRef.errors?.required  && phoneRef.touched" class="errorDiv">
+                    *Phone is required!
+                    </div>
+                    <div *ngIf="!phoneRef.valid  && phoneRef.touched && phoneRef.value!=''" class="errorDiv">
+                        <p style="font-size:12px">*Enter valid Phone Number!</p>
+                    </div>
+                </div>
+               
+            </div>        	
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required maxlength="30"  [(ngModel)]="defaultEmail" email #emailRef="ngModel">
+            <div *ngIf="emailRef.errors?.required  && emailRef.touched" class="errorDiv">
+                *Email is required!
+            </div>
+            <div *ngIf="!emailRef.valid  && emailRef.touched && emailRef.value!=''" class="errorDiv">
+                *Enter Valid Email Format!
+            </div>
+            
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required maxlength="20"  [(ngModel)]="defaultPass"  #passRef="ngModel">
+            <div *ngIf="passRef.errors?.required  && passRef.touched" class="errorDiv">
+                *Password is required!
+            </div>
+        </div>
+       
+        <div class="form-group">
+			<div class="row">
+				<!-- <div class="col"><input type="text" class="form-control" name="gender" placeholder="Gender" required="required" ngModel></div> -->
+                <div class="col">
+                <select id="inputState" class="form-control"  name="gender"   [(ngModel)]="defaultGender">
+                    
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                    
+                  </select>
+                </div>
+
+                <!-- <div class="col"><input type="number" class="form-control" name="roleId" placeholder="Role ID" required="required" ngModel></div> -->
+
+                <div class="col">
+                    <select id="inputState" class="form-control"  name="roleId"   [(ngModel)]="defaultRoleID">
+                        
+                        <option value="2">Employer</option>
+                        <option value="3">JobSeeker</option>
+                      
+                        
+                      </select>
+                    </div>
+			</div>        	
+        </div>   
+    
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!form.valid">Register Now</button>
+        </div>
+    </form>
+	<div class="text-center">Already have an account? <a routerLink="/login">Sign in</a></div>
+</div>
+</div>

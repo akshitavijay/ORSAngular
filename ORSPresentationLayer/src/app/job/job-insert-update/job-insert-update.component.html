@@ -1,0 +1,61 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" width="100%">
+    <input type="hidden" name="JobId" #JobId="ngModel" [(ngModel)]="service.postedJob.jobId">
+    <div class="form-group">
+    <label>EmployerId</label>
+    <input type="number" name="EmployerId" #EmployerId="ngModel" [(ngModel)]="service.postedJob.employerId" >
+    </div>
+    <div class="form-group">
+        <label>CompanyName</label>
+        <input name="CompanyName" #CompanyName="ngModel" [(ngModel)]="service.postedJob.companyName" class="form control" required>
+        <div class="validation-error" *ngIf="CompanyName.invalid && CompanyName.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>JobCategory</label>
+        <input name="JobCategory" #JobCategory="ngModel" [(ngModel)]="service.postedJob.jobCategory" class="form control" required>
+        <div class="validation-error" *ngIf="JobCategory.invalid && JobCategory.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>JobTitle</label>
+        <input name="JobTitle" #JobTitle="ngModel" [(ngModel)]="service.postedJob.jobTitle" class="form control" required>
+        <div class="validation-error" *ngIf="JobTitle.invalid && JobTitle.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>RequiredSkills</label>
+        <input name="RequiredSkills" #RequiredSkills="ngModel" [(ngModel)]="service.postedJob.requiredSkills" class="form control" required>
+        <div class="validation-error" *ngIf="RequiredSkills.invalid && RequiredSkills.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>CurrentOpenings</label>
+        <input type="number" name="CurrentOpenings" #CurrentOpenings="ngModel" [(ngModel)]="service.postedJob.currentOpenings" class="form control" required  maxlength=2>
+        <div class="validation-error" *ngIf="CurrentOpenings.invalid && CurrentOpenings.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>JoiningDate</label>
+        <input type="date" name="JoiningDate" #JoiningDate="ngModel" [(ngModel)]="service.postedJob.joiningDate" class="form control" required>
+        <div class="validation-error" *ngIf="JoiningDate.invalid && JoiningDate.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input name="Location" #Location="ngModel" [(ngModel)]="service.postedJob.location" class="form control" required>
+        <div class="validation-error" *ngIf="Location.invalid && Location.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Designation</label>
+        <input name="Designation" #Designation="ngModel" [(ngModel)]="service.postedJob.designation" class="form control" required>
+        <div class="validation-error" *ngIf="Designation.invalid && Designation.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Experience</label>
+        <input type="number" name="Experience" #Experience="ngModel" [(ngModel)]="service.postedJob.experience" class="form control" required maxlength=2>
+        <div class="validation-error" *ngIf="Experience.invalid && Experience.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Qualification</label>
+        <input name="Qualification" #Qualification="ngModel" [(ngModel)]="service.postedJob.qualification" class="form control" required>
+        <div class="validation-error" *ngIf="Qualification.invalid && Qualification.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    </div>
+</form>
+

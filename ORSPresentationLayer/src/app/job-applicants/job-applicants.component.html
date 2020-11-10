@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <hr>
+            <h2 class="heading">All Applicants</h2>
+            <hr>
+            <!-- table to show all the products -->
+            <table class="table">
+                <thead class=" table-dark">
+                    <tr>
+                        <th>JobSeeker Id</th>
+                        <th>Address</th>
+                        <th>Experience(in Yrs.)</th>
+                        <th>Qualification</th>
+                        <th>Profession</th>
+                        <th>SkillSet</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let jobSeeker of allJobSeekers | async">
+                       
+                        <td>{{jobSeeker.jobSeekerId}}</td>
+                        <td>{{jobSeeker.address}}</td>
+                        <td>{{jobSeeker.experience}}</td>
+                        <td>{{jobSeeker.qualification}}</td>
+                        <td>{{jobSeeker.profession}}</td>
+                        <td>{{jobSeeker.skillSet}}</td>
+                        
+                     </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

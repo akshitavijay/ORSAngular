@@ -1,0 +1,20 @@
+.form-group>input{
+    font-weight:bolder;
+}
+.form-group>label{
+    font-weight: lighter;
+}
+button[type="submit"]{
+    background-color: aqua;
+
+}
+label{
+    width:500px;
+   
+}
+.form-group{
+    width:500px;
+}
+form{
+    width:100%;
+}

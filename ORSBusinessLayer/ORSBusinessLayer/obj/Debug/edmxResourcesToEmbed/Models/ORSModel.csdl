@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ORSDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="applicationNo" />
+    </Key>
+    <Property Name="applicationNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jobId" Type="Int32" />
+    <Property Name="jobSeekerId" Type="Int32" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__Applicant__jobId__47DBAE45" FromRole="Applicant" ToRole="Job" />
+    <NavigationProperty Name="JobSeeker" Relationship="Self.FK__Applicant__jobSe__48CFD27E" FromRole="Applicant" ToRole="JobSeeker" />
+  </EntityType>
+  <EntityType Name="Employer">
+    <Key>
+      <PropertyRef Name="employerId" />
+    </Key>
+    <Property Name="employerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="companyName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="contactDetails" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Employer__userId__3E52440B" FromRole="Employer" ToRole="Users" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__employerId__440B1D61" FromRole="Employer" ToRole="Job" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="jobId" />
+    </Key>
+    <Property Name="jobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employerId" Type="Int32" />
+    <Property Name="companyName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="jobCategory" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="jobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="requiredSkills" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="currentOpenings" Type="Int32" />
+    <Property Name="joiningDate" Type="DateTime" Precision="0" />
+    <Property Name="location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="designation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="experience" Type="Int32" />
+    <Property Name="qualification" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK__Applicant__jobId__47DBAE45" FromRole="Job" ToRole="Applicant" />
+    <NavigationProperty Name="Employer" Relationship="Self.FK__Job__employerId__440B1D61" FromRole="Job" ToRole="Employer" />
+  </EntityType>
+  <EntityType Name="JobSeeker">
+    <Key>
+      <PropertyRef Name="jobSeekerId" />
+    </Key>
+    <Property Name="jobSeekerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="experience" Type="Int32" />
+    <Property Name="qualification" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="profession" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="skillSet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="resume" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK__Applicant__jobSe__48CFD27E" FromRole="JobSeeker" ToRole="Applicant" />
+    <NavigationProperty Name="User" Relationship="Self.FK__JobSeeker__userI__412EB0B6" FromRole="JobSeeker" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="Int32" Nullable="false" />
+    <Property Name="roleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleId__3A81B327" FromRole="Role" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="roleId" Type="Int32" />
+    <NavigationProperty Name="Employers" Relationship="Self.FK__Employer__userId__3E52440B" FromRole="Users" ToRole="Employer" />
+    <NavigationProperty Name="JobSeekers" Relationship="Self.FK__JobSeeker__userI__412EB0B6" FromRole="Users" ToRole="JobSeeker" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Users__roleId__3A81B327" FromRole="Users" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK__Applicant__jobId__47DBAE45">
+    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="jobId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="jobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicant__jobSe__48CFD27E">
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobSeeker">
+        <PropertyRef Name="jobSeekerId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="jobSeekerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employer__userId__3E52440B">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Employer" Type="Self.Employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Employer">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Job__employerId__440B1D61">
+    <End Role="Employer" Type="Self.Employer" Multiplicity="0..1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employer">
+        <PropertyRef Name="employerId" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="employerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JobSeeker__userI__412EB0B6">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="JobSeeker">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__roleId__3A81B327">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ORSDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+    <EntitySet Name="Employers" EntityType="Self.Employer" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="JobSeekers" EntityType="Self.JobSeeker" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Applicant__jobId__47DBAE45" Association="Self.FK__Applicant__jobId__47DBAE45">
+      <End Role="Job" EntitySet="Jobs" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicant__jobSe__48CFD27E" Association="Self.FK__Applicant__jobSe__48CFD27E">
+      <End Role="JobSeeker" EntitySet="JobSeekers" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employer__userId__3E52440B" Association="Self.FK__Employer__userId__3E52440B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Employer" EntitySet="Employers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Job__employerId__440B1D61" Association="Self.FK__Job__employerId__440B1D61">
+      <End Role="Employer" EntitySet="Employers" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JobSeeker__userI__412EB0B6" Association="Self.FK__JobSeeker__userI__412EB0B6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="JobSeeker" EntitySet="JobSeekers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__roleId__3A81B327" Association="Self.FK__Users__roleId__3A81B327">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

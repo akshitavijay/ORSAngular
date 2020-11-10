@@ -1,0 +1,71 @@
+<div class="container">
+    
+    <form [formGroup]="detailsForm" (ngSubmit)="editDetails()" ngNativeValidate>
+        <h2>Your Details</h2>
+        <hr>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="userId">User Id</label>
+        <div class="col-lg-8">
+            <input type="number" name="userId" class="form-control" id="userId" required formControlName="userId" readonly>
+        </div>
+        
+    </div>
+
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="address">Address</label>
+        <div class="col-lg-8">
+            <input type="text" name="address" class="form-control" id="address" formControlName="address" required readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="experience">Experience</label>
+        <div class="col-lg-8">
+            <input type="number" name="experience" class="form-control" id="experience" formControlName="experience" required readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="qualification">Qualification</label>
+        <div class="col-lg-8">
+            <input type="text" name="qualification" class="form-control" id="qualification" formControlName="qualification" required readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="profession">Profession</label>
+        <div class="col-lg-8">
+            <input type="text" name="profession" class="form-control" id="profession" formControlName="profession" required readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="skillSet">SkillSet</label>
+        <div class="col-lg-8">
+            <input type="text" name="skillSet" class="form-control" id="skillSet" formControlName="skillSet" required readonly>
+        </div>
+        
+    </div>
+    <div class="form-group form-row">
+        <label class= "col-lg-3" for="resume">Resume</label>
+        <div *ngIf="show" class="col-lg-8">
+            <b><p class="col-md-offset-3">**No Resume Uploaded**</p></b>
+        </div>
+    </div>
+    <!-- ../assets/documents/Akshita_vijay_resume.pdf -->
+    
+    <div *ngIf = "!show">
+        <iframe [src]= 'resumeURL()' type="application/pdf" width="100%" height="600px" formContrlName = "resume"></iframe>
+    </div>
+    
+    <div class="form-row text-center">
+        <button type="submit" class="btn btn-primary">Edit Details</button>
+        <button type="button" class="btn btn-success"  (click)="view()">View Applications</button>
+    </div>
+    
+    </form>
+
+</div>
+
+
+

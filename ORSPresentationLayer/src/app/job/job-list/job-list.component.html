@@ -1,0 +1,30 @@
+<div class="container">
+<table class="table table-hover " border="2">
+    <th></th>
+    <th>CompanyName</th>
+    <th>JobCategory</th>
+    <th>JobTitle</th>
+    <th>RequiredSkills</th>
+    <th>CurrentOpenings</th>
+    <th>JoiningDate</th>
+    <th>Location</th>
+    <th>Designation</th>
+    <th>Experience</th>
+    <th>Qualification</th>
+    <th>Delete</th>
+    <tr *ngFor="let jobavail of jobList">
+        <td><button (click)="viewApplicants(jobavail['jobId'])" class="btn btn-primary">View Applicants</button></td>
+        <td (click)="populateForm(jobavail)">{{jobavail["companyName"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["jobCategory"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["jobTitle"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["requiredSkills"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["currentOpenings"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["joiningDate"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["location"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["designation"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["experience"]}}</td>
+        <td (click)="populateForm(jobavail)">{{jobavail["qualification"]}}</td>
+        <td><button (click)="onDelete(jobavail['jobId'])" class="btn btn-sm btn-outline-danger">X</button></td>
+    </tr>
+</table>
+</div>

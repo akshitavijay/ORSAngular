@@ -1,0 +1,24 @@
+
+<div>
+    <h1 style="text-align: center; margin: 20px;">Admin Portal</h1>
+
+    <div class="container" >
+        <div class="row">
+            <div class="col">
+                <div class="card " *ngFor="let item of user" style=" text-align:center; background-image: url(../../../assets/bg13.jpg); background-size: 100% 100%; padding: 20px;">
+                    <div class="card-body" >
+                        <h5 class="card-title">Id : {{item["userId"]}}</h5>
+                        <p class="card-text">Name : {{item["name"]}}</p>
+                        <p class="card-text">Email : {{item["email"]}}</p>
+                        <p class="card-text">Phone : {{item["phone"]}}</p>
+                        <p class="card-text">Gender : {{item["gender"]}}</p>
+                        <p class="card-text">RoleId : {{item["roleId"]}}</p>
+                        <a (click)="updateUser(item['userId'])"  class="btn btn-primary">Edit</a>
+                        <!-- <a (click)="deleteUser(item['userId'])" class="btn btn-primary">Delete</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div><router-outlet></router-outlet></div>
